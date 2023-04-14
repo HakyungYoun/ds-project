@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>권한 승인 요청</title>
@@ -12,7 +13,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">권한 승인 요청</h1>
-        <form id="myform" name="myform">
+        <form id="myform" name="myform" action="/user/request" method="post">
             <div class="form-group">
                 <label for="user_id">사용자 ID</label>
                 <input type="text" class="form-control" id="user_id" name="user_id" required>
@@ -22,18 +23,18 @@
                 <input type="text" class="form-control" id="user_nm" name="user_nm" required>
             </div>
             <div class="form-group">
-                <label for="user_email">이메일</label>
-                <input type="email" class="form-control" id="user_email" name="user_email" required>
+                <label for="user_eml">이메일</label>
+                <input type="email" class="form-control" id="user_eml" name="user_eml" required>
             </div>
        		<div class="form-group">
-            <label for="deptSelect">부서명:</label>
-            <select class="form-control" id="deptSelect">
+            <label for="user_dept_no">부서명:</label>
+            <select class="form-control" id="user_dept_no" name="user_dept_no">
                 <option value="">선택안함</option>
-                <option value="부서1">부서1</option>
-                <option value="부서2">부서2</option>
-                <option value="부서3">부서3</option>
-                <option value="부서4">부서4</option>
-                <option value="부서5">부서5</option>
+                <option value="1">부서1</option>
+                <option value="2">부서2</option>
+                <option value="3">부서3</option>
+                <option value="4">부서4</option>
+                <option value="5">부서5</option>
             </select>
         </div>
             <div class="form-group">

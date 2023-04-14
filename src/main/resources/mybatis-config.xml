@@ -5,14 +5,14 @@
 <configuration>
 <typeAliases>
 	<typeAlias alias="UserDto" type="com.ds.hakyung.user.domain.UserDto"/>
-<!-- 	<typeAlias alias="BoardDto" type="com.kosa.myapp.board.domain.BoardDto"/> -->
+	<typeAlias alias="DeptDto" type="com.ds.hakyung.user.domain.DeptDto"/>
 <!-- 	<typeAlias alias="ScoreDto" type="com.kosa.myapp.score.domain.ScoreDto"/> -->
 
 
 </typeAliases>
 <mappers>
 	<mapper resource="mapper/User.xml"/>
-<!-- 	<mapper resource="mapper/Board.xml"/> -->
+	<mapper resource="mapper/Dept.xml"/>
 <!-- 	<mapper resource="mapper/Score.xml"/> -->
 
 </mappers>

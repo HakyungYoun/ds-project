@@ -24,7 +24,7 @@ public class UserController {
 	@PostMapping("user/request")
 	public String UserRequest(UserDto dto) {
 		service.insert(dto);
-		return "redirect:/user/userWrite";
+		return "redirect:/user/reg";
 		
 	}
 	

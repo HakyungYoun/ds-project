@@ -4,7 +4,7 @@
  
 	<mapper namespace="User">
 		<insert id="User_insert" parameterType="UserDto">
-			insert into user
+			insert into public."USER"
 			(
 				user_id
 				,user_nm
