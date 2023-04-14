@@ -4,7 +4,9 @@
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 	<mapper namespace="Dept">
-		
+		<select id="Dept_list" parameterType="DeptDto" resultType="DeptDto">
+			select * from public."DEPT"
+		</select>
 	
 	
 	

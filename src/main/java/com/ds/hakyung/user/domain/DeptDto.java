@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DeptDto {
-	int dept_no=0;
+	String dept_no="";
 	String dept_nm="";
 }
