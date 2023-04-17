@@ -6,13 +6,15 @@
 <typeAliases>
 	<typeAlias alias="UserDto" type="com.ds.hakyung.user.domain.UserDto"/>
 	<typeAlias alias="DeptDto" type="com.ds.hakyung.user.domain.DeptDto"/>
-<!-- 	<typeAlias alias="ScoreDto" type="com.kosa.myapp.score.domain.ScoreDto"/> -->
-
+	<typeAlias alias="HobbyDto" type="com.ds.hakyung.user.domain.HobbyDto"/>
+	<typeAlias alias="HobbyDataDto" type="com.ds.hakyung.user.domain.HobbyDataDto"/>
 
 </typeAliases>
 <mappers>
 	<mapper resource="mapper/User.xml"/>
 	<mapper resource="mapper/Dept.xml"/>
+	<mapper resource="mapper/Hobby.xml"/>
+	<mapper resource="mapper/HobbyData.xml"/>
 <!-- 	<mapper resource="mapper/Score.xml"/> -->
 
 </mappers>
