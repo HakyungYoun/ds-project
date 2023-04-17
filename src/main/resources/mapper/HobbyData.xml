@@ -5,7 +5,17 @@
  
 	<mapper namespace="HobbyData">
 	<insert id="hobby_insert" parameterType="HobbyDataDto">
-	
+		insert into public."hobby_data"
+			(
+			user_id
+			,hobby_cd
+			)
+		values
+			(
+			#{user_id}
+			,#{hobby_cd}	
+			)
+		
 	
 	</insert>
 	

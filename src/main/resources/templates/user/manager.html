@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+  <title>사용자 권한 관리</title>
+  <style>
+    /* 스타일을 추가해주세요. */
+  </style>
+</head>
+<body>
+  <!-- 사용자명으로 검색을 할 수 있는 검색창 -->
+  <label for="search-input">사용자명 검색:</label>
+  <input type="text" id="search-input" oninput="searchUser()" />
+
+  <hr />
+
+  <div style="display: flex;">
+    <!-- 왼쪽 섹션: 권한 신청자 목록 -->
+    <div style="flex: 1; text-align:center;">
+      <h2>권한 신청자 목록</h2>
+     <table  style="border:1px solid black;margin-left:auto;margin-right:auto;">
+     	<thead>
+     	<tr>
+     	<th>ID</th>
+     	<th>사원명</th>
+     	<th>부서명</th>
+     	<th>승인상태</th>
+     	</tr>
+     	</thead>
+     	<tbody>
+     	<th:block>
+     	<tr>
+     	<td></td>
+     	<td></td>
+     	<td></td>
+     	<td></td>
+     	</tr>
+     	</th:block>
+     	</tbody>
+     </table>
+     
+    </div>
+
+    <!-- 오른쪽 섹션: 사용자 상세 정보와 수정 가능한 입력창 -->
+    <div style="flex: 1;">
+      <h2>사용자 상세 정보</h2>
+      <form id="user-form">
+        <label for="user-id-input">사용자 ID:</label>
+        <input type="text" id="user-id-input" readonly /><br />
+        <label for="user-name-input">사용자명:</label>
+        <input type="text" id="user-name-input" readonly /><br />
+        <label for="department-input">부서명:</label>
+        <input type="text" id="department-input" /><br />
+        <label for="approval-input">승인여부:</label>
+        <input type="text" id="approval-input" readonly /><br />
+        <input type="submit" value="저장" />
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+ 

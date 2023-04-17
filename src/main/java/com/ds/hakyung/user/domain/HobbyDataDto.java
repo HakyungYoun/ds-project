@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HobbyDataDto {
-String hobby_user_id="";
+String user_id="";
 String hobby_cd="";
 
 }

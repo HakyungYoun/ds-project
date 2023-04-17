@@ -44,7 +44,7 @@
                <label for="user_addr">취미</label>
              <div class="checkbox-container">
 	        <th:block th:each="hobby : ${hobbyList}">
-	        <input type="checkbox" id="checkbox1" th:value="${hobby.hobby_cd}">
+	        <input type="checkbox" id="hobby_cd" name="hobby_cd" th:value="${hobby.hobby_cd}">
 	        <label for="checkbox1" th:text="${hobby.hobby_nm}"></label>
 	        </th:block>
 	      

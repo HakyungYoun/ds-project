@@ -23,5 +23,8 @@
 				,#{user_addr}
 			)
 		</insert>
+		<select id="user_list" parameterType="UserDto" resultType="UserDto">
+			select * from public."USER"
+		</select>
 
 	</mapper>

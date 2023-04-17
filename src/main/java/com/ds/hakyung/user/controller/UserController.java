@@ -11,6 +11,7 @@ import com.ds.hakyung.user.DeptService;
 import com.ds.hakyung.user.HobbyService;
 import com.ds.hakyung.user.UserService;
 import com.ds.hakyung.user.domain.DeptDto;
+import com.ds.hakyung.user.domain.HobbyDataDto;
 import com.ds.hakyung.user.domain.HobbyDto;
 import com.ds.hakyung.user.domain.UserDto;
 
@@ -38,9 +39,17 @@ public class UserController {
 		return "user/userWrite";
 	}
 	@PostMapping("user/request")
-	public String UserRequest(UserDto dto) {
+	public String UserRequest(UserDto dto,HobbyDataDto dto4) {
 		service.insert(dto);
+		service3.insertHobby(dto4);
 		return "redirect:/user/reg";
+		
+	}
+	
+	@GetMapping("user/manager")
+	String goManagerPage() {
+		
+		return "user/manager";
 		
 	}
 	

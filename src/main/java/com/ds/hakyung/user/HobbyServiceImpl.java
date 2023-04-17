@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ds.hakyung.user.domain.HobbyDataDto;
 import com.ds.hakyung.user.domain.HobbyDto;
 import com.ds.hakyung.user.repository.HobbyDao;
 
@@ -18,6 +19,10 @@ public class HobbyServiceImpl implements HobbyService{
 	public List<HobbyDto> getList(HobbyDto dto) {
 		
 		return dao.getList(dto);
+	}
+	@Override
+	public void insertHobby(HobbyDataDto dto2) {
+		dao.insertHobby(dto2);
 	}
 
 }
