@@ -47,8 +47,9 @@ public class UserController {
 	}
 	
 	@GetMapping("user/manager")
-	String goManagerPage() {
-		
+	String goManagerPage(UserDto dto,Model model) {
+		List<UserDto> userList=service.getList(dto);
+		model.addAttribute("userList", userList);
 		return "user/manager";
 		
 	}

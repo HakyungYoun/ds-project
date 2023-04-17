@@ -1,5 +1,7 @@
 package com.ds.hakyung.user.repository;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,12 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void insert(UserDto dto) {
 		sm.insert("User_insert",dto);
+	}
+
+	@Override
+	public List<UserDto> getList(UserDto dto) {
+		
+		return sm.selectList("user_list",dto);
 	}
 
 }

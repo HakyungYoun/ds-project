@@ -1,5 +1,7 @@
 package com.ds.hakyung.user;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ds.hakyung.user.domain.UserDto;
@@ -16,6 +18,11 @@ public class UserServiceImpl implements UserService{
 	
 	public void insert(UserDto dto) {
 		dao.insert(dto);
+	}
+
+	@Override
+	public List<UserDto> getList(UserDto dto) {
+		return dao.getList(dto);
 	}
 
 }

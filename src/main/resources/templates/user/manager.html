@@ -28,12 +28,12 @@
      	</tr>
      	</thead>
      	<tbody>
-     	<th:block>
+     	<th:block th:each="user : ${userList}">
      	<tr>
-     	<td></td>
-     	<td></td>
-     	<td></td>
-     	<td></td>
+     	<td th:text="${user.user_id}"></td>
+     	<td th:text="${user.user_nm}"></td>
+     	<td th:text="${user.dept_nm}"></td>
+     	<td th:text="${user.user_aprv_yn}"></td>
      	</tr>
      	</th:block>
      	</tbody>

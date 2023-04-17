@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserDto {
+public class UserDto extends DeptDto{
 	String user_id="";
 	String user_nm="";
 	String user_eml="";

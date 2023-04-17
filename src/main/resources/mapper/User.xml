@@ -24,7 +24,10 @@
 			)
 		</insert>
 		<select id="user_list" parameterType="UserDto" resultType="UserDto">
-			select * from public."USER"
+				select *
+				from "USER" as a 
+				left outer join "DEPT" as b 
+					on a.user_dept_no = b.dept_no
 		</select>
 
 	</mapper>
