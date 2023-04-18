@@ -41,7 +41,14 @@ public class UserController {
 	@PostMapping("user/request")
 	public String UserRequest(UserDto dto,HobbyDataDto dto4) {
 		service.insert(dto);
-		service3.insertHobby(dto4);
+		
+		String hobby_cd=dto4.getHobby_cd();
+		String[] values = hobby_cd.split(",");
+		for (String value : values) {
+			dto4.setHobby_cd(value);
+			service3.insertHobby(dto4);
+		}
+		
 		return "redirect:/user/reg";
 		
 	}
@@ -55,4 +62,10 @@ public class UserController {
 	}
 	
 	
-}
+	
+	}
+		
+	
+	
+	
+

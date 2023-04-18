@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserDto extends DeptDto{
+public class UserDto{
 	String user_id="";
 	String user_nm="";
 	String user_eml="";
@@ -13,5 +13,7 @@ public class UserDto extends DeptDto{
 	String user_telno="";
 	String user_addr="";
 	String user_aprv_yn="";
+	String dept_nm="";
+	String hobby_nm="";
 	
 }

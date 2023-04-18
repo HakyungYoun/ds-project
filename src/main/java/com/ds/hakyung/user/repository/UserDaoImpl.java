@@ -25,4 +25,14 @@ public class UserDaoImpl implements UserDao{
 		return sm.selectList("user_list",dto);
 	}
 
+	@Override
+	public UserDto getInfo(UserDto dto) {
+		return sm.selectOne("user_info",dto);
+	}
+
+	@Override
+	public List<UserDto> getHobbyList(UserDto dto) {
+		return sm.selectList("user_hobby_info", dto);
+	}
+
 }

@@ -25,4 +25,14 @@ public class UserServiceImpl implements UserService{
 		return dao.getList(dto);
 	}
 
+	@Override
+	public UserDto getInfo(UserDto dto) {
+		return dao.getInfo(dto);
+	}
+
+	@Override
+	public List<UserDto> getHobbyList(UserDto dto) {
+		return dao.getHobbyList(dto);
+	}
+
 }

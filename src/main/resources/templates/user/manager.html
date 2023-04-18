@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <head>
   <title>사용자 권한 관리</title>
   <style>
@@ -30,7 +31,7 @@
      	<tbody>
      	<th:block th:each="user : ${userList}">
      	<tr>
-     	<td th:text="${user.user_id}"></td>
+     	<td th:text="${user.user_id}" id=user_info_id th:value="${user.user_id}" th:onclick=getUserInfo()></td>
      	<td th:text="${user.user_nm}"></td>
      	<td th:text="${user.dept_nm}"></td>
      	<td th:text="${user.user_aprv_yn}"></td>
@@ -40,23 +41,62 @@
      </table>
      
     </div>
-
+    
     <!-- 오른쪽 섹션: 사용자 상세 정보와 수정 가능한 입력창 -->
     <div style="flex: 1;">
       <h2>사용자 상세 정보</h2>
       <form id="user-form">
-        <label for="user-id-input">사용자 ID:</label>
-        <input type="text" id="user-id-input" readonly /><br />
-        <label for="user-name-input">사용자명:</label>
-        <input type="text" id="user-name-input" readonly /><br />
-        <label for="department-input">부서명:</label>
-        <input type="text" id="department-input" /><br />
-        <label for="approval-input">승인여부:</label>
-        <input type="text" id="approval-input" readonly /><br />
-        <input type="submit" value="저장" />
+ <table>
+  <tr>
+    <td>사용자 ID</td>
+    <td><input type="text" id="user_id"></td>
+  </tr>
+  <tr>
+    <td>사용자명</td>
+    <td><input type="text" id="user_nm"></td>
+  </tr>
+  <tr>
+    <td>이메일</td>
+    <td><input type="text" id="user_eml"></td>
+  </tr>
+  <tr>
+    <td>부서</td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>전화번호</td>
+    <td><input type="text" id="user_telno"></td>
+  </tr>
+  <tr>
+    <td>주소</td>
+    <td><input type="text" id="user_addr"></td>
+  </tr>
+  <tr>
+    <td>취미</td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>승인상태</td>
+    <td><input type="text" id="user_aprv_yn"></td>
+  </tr>
+</table>
+        <input type="submit" value="저장"/>
       </form>
     </div>
   </div>
 </body>
 </html>
+ <script>
+ function getUserInfo(){
+ let user_id=$('#user_info_id').val()
+ $.ajax({
+	type:'GET',
+	url:'user/info',
+	data:{'user_id':user_id}
+ 	
  
+ })
+ 
+ 
+ }
+ </script>

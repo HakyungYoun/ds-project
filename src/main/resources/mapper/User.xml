@@ -29,5 +29,19 @@
 				left outer join "DEPT" as b 
 					on a.user_dept_no = b.dept_no
 		</select>
+		<select id="user_info" parameterType="UserDto" resultType="UserDto">
+				select *
+					from "USER" as a 
+					left outer join "DEPT" as b 
+						on a.user_dept_no = b.dept_no
+						where a.user_id=#{user_id}
+		</select>
+		<select id="user_hobby_info" parameterType="UserDto" resultType="UserDto">
+				select user_id,hobby_nm
+					from "hobby_data" as a
+						left outer join "hobby" as b
+						 on a.hobby_cd=b.hobby_cd
+						 where a.user_id=#{user_id}
+		</select>
 
 	</mapper>
