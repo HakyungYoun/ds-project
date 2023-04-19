@@ -15,5 +15,6 @@ public class UserDto{
 	String user_aprv_yn="";
 	String dept_nm="";
 	String hobby_nm="";
+	String hobby_cd="";
 	
 }

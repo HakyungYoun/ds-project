@@ -9,4 +9,6 @@ public interface UserService {
 	List<UserDto> getList(UserDto dto);
 	UserDto getInfo(UserDto dto);
 	List<UserDto> getHobbyList(UserDto dto);
+	void update(UserDto dto);
+	void delete(UserDto dto);
 }

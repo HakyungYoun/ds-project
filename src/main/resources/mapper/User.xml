@@ -37,11 +37,36 @@
 						where a.user_id=#{user_id}
 		</select>
 		<select id="user_hobby_info" parameterType="UserDto" resultType="UserDto">
-				select user_id,hobby_nm
+				select user_id,hobby_nm,a.hobby_cd
 					from "hobby_data" as a
 						left outer join "hobby" as b
 						 on a.hobby_cd=b.hobby_cd
 						 where a.user_id=#{user_id}
 		</select>
-
+		<update id="user_update" parameterType="UserDto">
+		update public."USER" set
+			(
+				user_id
+				,user_nm
+				,user_eml
+				,user_dept_no
+				,user_telno
+				,user_addr
+				,user_aprv_yn
+			)
+			=
+			(
+				#{user_id}
+				,#{user_nm}
+				,#{user_eml}
+				,#{user_dept_no}
+				,#{user_telno}
+				,#{user_addr}
+				,#{user_aprv_yn}
+			)
+			where user_id=#{user_id}
+		</update>
+		<delete id="user_Delete" parameterType="UserDto">
+			delete from public."USER" where user_id=#{user_id}
+		</delete>
 	</mapper>

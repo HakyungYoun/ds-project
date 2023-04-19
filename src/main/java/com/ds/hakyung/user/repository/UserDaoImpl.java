@@ -35,4 +35,14 @@ public class UserDaoImpl implements UserDao{
 		return sm.selectList("user_hobby_info", dto);
 	}
 
+	@Override
+	public void update(UserDto dto) {
+		sm.update("user_update",dto);
+	}
+
+	@Override
+	public void delete(UserDto dto) {
+		sm.delete("user_Delete",dto);
+	}
+
 }

@@ -35,4 +35,14 @@ public class UserServiceImpl implements UserService{
 		return dao.getHobbyList(dto);
 	}
 
+	@Override
+	public void update(UserDto dto) {
+		dao.update(dto);
+	}
+
+	@Override
+	public void delete(UserDto dto) {
+		dao.delete(dto);
+	}
+
 }

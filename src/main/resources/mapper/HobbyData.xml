@@ -18,6 +18,7 @@
 		
 	
 	</insert>
-	
-	
+	<delete id="hobby_delete" parameterType="HobbyDataDto">
+		delete from "hobby_data" where user_id=#{user_id}
+	</delete>
 	</mapper>
