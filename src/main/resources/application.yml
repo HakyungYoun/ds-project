@@ -1,7 +1,7 @@
 spring:
  datasource: 
   driver-class-name: org.postgresql.Driver 
-  url: jdbc:postgresql://localhost:5432/hk # GCP 외부 IP 
+  url: jdbc:postgresql://34.64.243.97:5432/hk # GCP 외부 IP 
   username: user01 # DB 계정 
   password: 5379 # DB 비밀번호
  
