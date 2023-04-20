@@ -45,4 +45,19 @@ public class UserServiceImpl implements UserService{
 		dao.delete(dto);
 	}
 
+	@Override
+	public List<UserDto> getSearchList(UserDto dto) {
+		return dao.getSearchList(dto);
+	}
+
+	@Override
+	public boolean userIdCheck(UserDto dto) {
+		int result=dao.userIdCheck(dto);
+		if(result==0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 }

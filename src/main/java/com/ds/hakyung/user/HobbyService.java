@@ -8,4 +8,5 @@ import com.ds.hakyung.user.domain.HobbyDto;
 public interface HobbyService {
 	List<HobbyDto> getList(HobbyDto dto);
 	void insertHobby(HobbyDataDto dto2);
+	void delete(HobbyDataDto dto2);
 }

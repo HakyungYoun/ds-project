@@ -24,5 +24,9 @@ public class HobbyServiceImpl implements HobbyService{
 	public void insertHobby(HobbyDataDto dto2) {
 		dao.insertHobby(dto2);
 	}
+	@Override
+	public void delete(HobbyDataDto dto2) {
+		dao.delete(dto2);
+	}
 
 }

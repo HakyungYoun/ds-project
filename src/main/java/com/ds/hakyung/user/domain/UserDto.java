@@ -16,5 +16,6 @@ public class UserDto{
 	String dept_nm="";
 	String hobby_nm="";
 	String hobby_cd="";
+	String searchKeyword="";
 	
 }

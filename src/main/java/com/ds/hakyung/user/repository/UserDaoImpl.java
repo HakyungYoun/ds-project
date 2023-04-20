@@ -45,4 +45,14 @@ public class UserDaoImpl implements UserDao{
 		sm.delete("user_Delete",dto);
 	}
 
+	@Override
+	public List<UserDto> getSearchList(UserDto dto) {
+		return sm.selectList("searchUser",dto);
+	}
+
+	@Override
+	public int userIdCheck(UserDto dto) {
+		return sm.selectOne("user_idCheck",dto);
+	}
+
 }

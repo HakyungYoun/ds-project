@@ -11,4 +11,6 @@ public interface UserDao {
 	List<UserDto> getHobbyList(UserDto dto);
 	void update(UserDto dto);
 	void delete(UserDto dto);
+	List<UserDto> getSearchList(UserDto dto);
+	int userIdCheck(UserDto dto);
 }

@@ -10,9 +10,11 @@
 </head>
 <body>
   <!-- 사용자명으로 검색을 할 수 있는 검색창 -->
+  <form>
   <label for="search-input">사용자명 검색:</label>
-  <input type="text" id="search-input" oninput="searchUser()" />
-
+  <input type="text" id="searchUser" name="searchKeyword"  />
+  <input type="submit" value="검색" formaction="/user/manager"/>
+</form>
   <hr />
 
   <div style="display: flex;">

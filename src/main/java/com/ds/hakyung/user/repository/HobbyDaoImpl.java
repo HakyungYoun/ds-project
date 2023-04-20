@@ -25,5 +25,10 @@ public class HobbyDaoImpl implements HobbyDao{
 		
 	}
 
+	@Override
+	public void delete(HobbyDataDto dto2) {
+		sm.delete("hobby_delete",dto2);
+	}
+
 
 }

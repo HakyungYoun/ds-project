@@ -55,16 +55,46 @@ public class UserController {
 		return "redirect:/user/reg";
 		
 	}
+//	@PostMapping("user/request")
+//	Map<String,Object> userRequest(UserDto dto,HobbyDataDto dto4){
+//		service.insert(dto);
+//		String hobby_cd=dto4.getHobby_cd();
+//		String[] values = hobby_cd.split(",");
+//		for (String value : values) {
+//			dto4.setHobby_cd(value);
+//			service3.insertHobby(dto4);
+//		}
+//		Map<String,Object> map=new HashMap<String,Object>();
+//		map.put("result", "sucess");
+//		return map;
+//	}
+
+//	@PostMapping(value="user/idcheck")
+//	Map<String,Object> userIdCheck(UserDto dto){
+//		Map<String,Object> map=new HashMap<String,Object>();
+//		if(service.userIdCheck(dto)) {
+//			map.put("result", "success");
+//		}else {
+//			map.put("result", "fail");
+//		}
+//		System.out.println(map);
+//		return map;
+//	}
 	
 	@GetMapping("user/manager")
-	String goManagerPage(UserDto dto,Model model,DeptDto dto2,HobbyDto dto3) {
+	String goManagerPage(UserDto dto,Model model,DeptDto dto2,HobbyDto dto3,String searchKeyword) {
 		List<UserDto> userList=service.getList(dto);
 		List<DeptDto> deptList=service2.getList(dto2);
 		List<HobbyDto> HobbyList=service3.getList(dto3);
-		String[] aprv= {"승인대기","승인"};
-		model.addAttribute("aprv", aprv);
+		List<UserDto> searchList=service.getSearchList(dto);
+		if(searchKeyword==null ||searchKeyword=="") {
+			model.addAttribute("userList", userList);
+		}else {
+			model.addAttribute("userList",searchList);
+		}
+		
+		
 		model.addAttribute("hobbyList", HobbyList);
-		model.addAttribute("userList", userList);
 		model.addAttribute("deptList", deptList);
 		return "user/manager";
 		
@@ -99,7 +129,13 @@ public class UserController {
 	@PostMapping("user/update")
 	public String userUpdate(UserDto dto,HobbyDataDto dto4) {
 		service.update(dto);
-		
+		service3.delete(dto4);
+		String hobby_cd=dto4.getHobby_cd();
+		String[] values = hobby_cd.split(",");
+		for (String value : values) {
+			dto4.setHobby_cd(value);
+			service3.insertHobby(dto4);
+		}
 		return "redirect:/user/manager";
 		
 	}
