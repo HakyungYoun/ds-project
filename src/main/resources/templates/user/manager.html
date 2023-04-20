@@ -120,14 +120,20 @@
 	 $('#user_addr').attr("value",res.user_addr);
 	 $('#user_aprv_yn').val(res.user_aprv_yn);
 
-	 $('.hobby_cd').each(function(index) {
-		  if (res['user_hobby_info' + index] == $(this).val()) {
-		    $(this).prop('checked', true);
-		  }else{
-			  $(this).prop('checked', false);
-		  }
-		});
 	 
+	 
+	 $('.hobby_cd').each(function() {
+		    var currentValue = $(this).val();
+		    for (var i = 0; i < Object.keys(res).length; i++) {
+		        var resValue = res['user_hobby_info' + i];
+		        if (currentValue == resValue) {
+		            $(this).prop('checked', true);
+		            break;
+		        } else {
+		            $(this).prop('checked', false);
+		        }
+		    }
+		});
  })
  }
 

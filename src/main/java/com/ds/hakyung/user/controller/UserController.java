@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ds.hakyung.user.DeptService;
@@ -41,45 +42,45 @@ public class UserController {
 		model.addAttribute("hobbyList", HobbyList);
 		return "user/userWrite";
 	}
-	@PostMapping("user/request")
-	public String UserRequest(UserDto dto,HobbyDataDto dto4) {
-		service.insert(dto);
-		
-		String hobby_cd=dto4.getHobby_cd();
-		String[] values = hobby_cd.split(",");
-		for (String value : values) {
-			dto4.setHobby_cd(value);
-			service3.insertHobby(dto4);
-		}
-		
-		return "redirect:/user/reg";
-		
-	}
 //	@PostMapping("user/request")
-//	Map<String,Object> userRequest(UserDto dto,HobbyDataDto dto4){
+//	public String UserRequest(UserDto dto,HobbyDataDto dto4) {
 //		service.insert(dto);
+//		
 //		String hobby_cd=dto4.getHobby_cd();
 //		String[] values = hobby_cd.split(",");
 //		for (String value : values) {
 //			dto4.setHobby_cd(value);
 //			service3.insertHobby(dto4);
 //		}
-//		Map<String,Object> map=new HashMap<String,Object>();
-//		map.put("result", "sucess");
-//		return map;
+//		
+//		return "redirect:/user/reg";
+//		
 //	}
-
-//	@PostMapping(value="user/idcheck")
-//	Map<String,Object> userIdCheck(UserDto dto){
-//		Map<String,Object> map=new HashMap<String,Object>();
-//		if(service.userIdCheck(dto)) {
-//			map.put("result", "success");
-//		}else {
-//			map.put("result", "fail");
-//		}
-//		System.out.println(map);
-//		return map;
-//	}
+	@ResponseBody
+	@RequestMapping("user/request")
+	Map<String,Object> userRequest(UserDto dto,HobbyDataDto dto4){
+		service.insert(dto);
+		String hobby_cd=dto4.getHobby_cd();
+		String[] values = hobby_cd.split(",");
+		for (String value : values) {
+			dto4.setHobby_cd(value);
+			service3.insertHobby(dto4);
+		}
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("result", "sucess");
+		return map;
+	}
+	@ResponseBody
+	@GetMapping(value="/user/idcheck")
+	Map<String,String> userIdCheck(UserDto dto){
+		Map<String,String> map=new HashMap<String,String>();
+		if(service.userIdCheck(dto)) {
+			map.put("result", "success");
+		}else {
+			map.put("result", "fail");
+		}
+		return map;
+	}
 	
 	@GetMapping("user/manager")
 	String goManagerPage(UserDto dto,Model model,DeptDto dto2,HobbyDto dto3,String searchKeyword) {
@@ -108,10 +109,7 @@ public class UserController {
 		if(userHbInfo!=null) {
 		for (int i = 0; i < userHbInfo.size(); i++) {
 			UserDto uhi=userHbInfo.get(i);
-//			System.out.println(uhi.getHobby_cd());
 			map.put("user_hobby_info"+i, uhi.getHobby_cd());
-//			System.out.println(map);
-			
 		}
 		
 		}
