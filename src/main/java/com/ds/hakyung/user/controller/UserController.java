@@ -19,7 +19,7 @@ import com.ds.hakyung.user.domain.HobbyDataDto;
 import com.ds.hakyung.user.domain.HobbyDto;
 import com.ds.hakyung.user.domain.UserDto;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.hakyung.user.domain.UserDto;
 import com.ds.hakyung.user.repository.UserDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 
 @Service("UserService")
