@@ -57,7 +57,7 @@ public class UserController {
 //		
 //	}
 	@ResponseBody
-	@RequestMapping("user/request")
+	@RequestMapping("/user/request")
 	Map<String,Object> userRequest(UserDto dto,HobbyDataDto dto4){
 		service.insert(dto);
 		String hobby_cd=dto4.getHobby_cd();
