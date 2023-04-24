@@ -35,7 +35,6 @@
        		<div class="form-group">
             <label for="user_dept_no">부서명:</label>
             <select class="form-control" id="user_dept_no" name="user_dept_no">
-                
                 <option th:each="dept:${deptList}" th:text="${dept.dept_nm}" th:value="${dept.dept_no}"></option>
             </select>
         </div>
