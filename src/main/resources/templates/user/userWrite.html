@@ -42,6 +42,7 @@
                 <label for="user_telno">전화번호</label>
                 <input type="tel" class="form-control" id="user_telno" name="user_telno" required>
             </div>
+           
             <div class="form-group">
                 <label for="user_addr">주소</label>
                 <input type="text" class="form-control" id="user_addr" name="user_addr" required>
@@ -65,7 +66,10 @@ $(()=>{
 	let param=$("#myform").serialize();
 	if ($("#idcheck").val()=="N") {
         alert("아이디 중복체크를 하세요");
-        $("#user_id").focus();
+    
+	         if(res.result=="success")
+	            alert("등록 요청 되었습니다");
+	         location.href=    $("#user_id").focus();
         return;
      }
 		$.ajax({
@@ -74,10 +78,7 @@ $(()=>{
 	         dataType:"json", 
 	         type:"POST"
 	      })
-	      .done((res)=>{
-	         if(res.result=="success")
-	            alert("등록 요청 되었습니다");
-	         location.href="/"
+	      .done((res)=>{"/"
 	      })
 	      
 	})
