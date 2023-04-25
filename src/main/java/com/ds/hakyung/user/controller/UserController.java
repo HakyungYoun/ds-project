@@ -67,7 +67,7 @@ public class UserController {
 			service3.insertHobby(dto4);
 		}
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("result", "sucess");
+		map.put("result", "success");
 		return map;
 	}
 	@ResponseBody

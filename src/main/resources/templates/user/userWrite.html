@@ -66,10 +66,7 @@ $(()=>{
 	let param=$("#myform").serialize();
 	if ($("#idcheck").val()=="N") {
         alert("아이디 중복체크를 하세요");
-    
-	         if(res.result=="success")
-	            alert("등록 요청 되었습니다");
-	         location.href=    $("#user_id").focus();
+        $("#user_id").focus();
         return;
      }
 		$.ajax({
@@ -78,7 +75,11 @@ $(()=>{
 	         dataType:"json", 
 	         type:"POST"
 	      })
-	      .done((res)=>{"/"
+	      .done((res)=>{
+	    	  if(res.result=="success"){
+		            alert("등록 요청 되었습니다");
+	    	  }
+		         location.href= "/";
 	      })
 	      
 	})
